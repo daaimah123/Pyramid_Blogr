@@ -14,3 +14,6 @@ class User(Base):
     name = Column(Unicode(255), unique=True, nullable=False)
     password = Column(Unicode(255), nullable=False)
     last_logged = Column(DateTime, default=datetime.datetime.utcnow)
+
+    def verify_password(self, password):
+        return self.password == password
